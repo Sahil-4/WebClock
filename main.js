@@ -1,12 +1,11 @@
-
+//initializing all Variables
 var curTime, dt, dy, mn, yr, hr, min, sc, hp;
+//Array of days
 const days = new Array (
 	"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
-);/*
-const bgs = new Array (
-	"url('res/time.jpg')", "url('res/morning.jpg')", "url('res/lateEvening.jpg')", "url('res/earlyEvening.jpg')", "url('res/afterMorning.jpg')", "url('res/afternoon.jpg')", "url('res/evening.jpg')"
-);*/
-
+);
+//Array of background Imgs
+//Note: All images may Subject to Copyright
 const bgs = new Array (
 	"url('res/0.jpg')", 
 	"url('res/1.jpg')", 
@@ -18,6 +17,7 @@ const bgs = new Array (
 	"url('res/7.jpg')", 
 	"url('res/8.jpg')"
 );
+//Function that add 0 in front on any Number or String
 function add0(t) {
 	if(t < 10){
 		t = '0' + t;
@@ -26,6 +26,7 @@ function add0(t) {
 	}
 	return t;
 }
+//Function to fill vars with Date value
 function mkDate() {
 	dt = curTime.getDate();
 	dy = curTime.getDay();
@@ -33,6 +34,7 @@ function mkDate() {
 	yr = curTime.getFullYear();
 	dispDate(dy, mn, dt, yr);
 }
+//Function to Display Date
 function dispDate(dy, mn, dt, yr) {
 	let hp, date;
 	hp = ".";
@@ -41,6 +43,7 @@ function dispDate(dy, mn, dt, yr) {
 	document.getElementById('date').innerHTML = date;
 	document.getElementById('day').innerHTML = dy;
 }
+//Function to fill vars with Time value
 function mkTime() {
 	hr = curTime.getHours();
 	min = curTime.getMinutes();
@@ -48,6 +51,7 @@ function mkTime() {
 	dispTime(hr, min, sc);
 	displaySaying(hr)
 }
+//Function to Display Time
 function dispTime(hr, min, sc) {
 	let hp, time;
 	hp = ":";
@@ -57,6 +61,7 @@ function dispTime(hr, min, sc) {
 	time = hr + hp + min + hp + sc;
 	document.getElementById('time').innerHTML = time;
 }
+//Function to wish Morning Afternoon Evening or Night
 function displaySaying(hr) {
 	let pSay = document.getElementById('saying');
 	if (hr > 4 && hr < 12){
@@ -75,6 +80,7 @@ function displaySaying(hr) {
 		pSay.innerHTML = 'Hello';
 	}
 }
+//Function to set Background-Image Font-Color According to Time
 function dispImage() {
 	hr = new Date().getHours()
 	let bg = document.getElementById('body').style
@@ -109,17 +115,12 @@ function dispImage() {
 		bg.backgroundImage = bgs[8];
 	}
 }
-
+//Function to Start JavaScript
 function startUp() {
 	curTime = new Date();
 	mkTime();
 	mkDate();
 	dispImage()
 }
-function startUp2() {
-	
-}
-//dispImage();
-setInterval(startUp, 500);
-//setInterval(startUp2, 10000);
 
+setInterval(startUp, 500);
