@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html>
+<meta name= "viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<style type="text/css">
+#body{height:100%;
+	width:100%;
+	color:#ffffff;
+	text-align:center;
+	text-decoration:blink;
+	padding:auto;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+}
+#saying{text-align:center;
+		font-size:220%;
+		font-weight:900;
+		font-family: 'Sansita Swashed', cursive;
+}
+#clock{/*position:relative;*/
+		position: fixed;
+		height:30%;
+		width:100%;
+		top:7%;
+		text-align:center;
+		vertical-align:middle;
+		right:0%;
+		left:0%;
+}
+#time{font-size:385%;
+		color:#fff325;
+}
+#date{font-size:150%;
+		color:#fff325;
+		text-decoration:underline;
+}
+#quote{position:fixed;
+		top:70%;
+		left:0;
+		right:0;
+		text-align:center;
+		vertical-align:bottom;
+}
+
+</style>
+
+<title>Web Clock</title>
+</head>
+<body id="body">
+<h1 id ="saying">Hello</h1>
+<!-- Clock Container-->
+<div id = "clock">
+<p id = "time">Time </p>
+<p id ="date">Date </p>
+</div>
+
+<p id ="quote">Time waits for no one...</p>
+
+
+
+<!--Script Start -->
+<script type="text/javascript">
+/**********/
+//Function To Display Time
+function dispTime() {
+	var Time = new Date();
+	var date = Time.getDate();
+	var month = Time.getMonth();
+	var month = month+1;
+	var year = Time.getFullYear();
+	var day = Time.getDay();
+	var hour = Time.getHours();
+	var minute = Time.getMinutes();
+	var second = Time.getSeconds();
+	var CurTime = hour+":"+minute+":"+second;
+	var CurDate = date+":"+month+":"+year;
+	var getElem = document.getElementById("time");
+	getElem.innerHTML = CurTime;
+	var getElem2 = document.getElementById("date");
+	getElem2.innerHTML = CurDate;
+}
+/*********/
+//Greet Function
+function Greet() {
+var hour = new Date().getHours();
+var getsaying = document.getElementById("saying");
+switch (hour) {
+	case 0: 
+	getsaying.innerHTML = "Good Night";
+	break;
+	case 1: 
+	getsaying.innerHTML = "Good Night";
+	break;
+	case 2: 
+	getsaying.innerHTML = "Good Night";
+	break;
+	case 3:
+	getsaying.innerHTML = "Good Morning";
+	break;
+	case 4:
+	getsaying.innerHTML = "Good Morning";
+	break;
+	case 5:
+	getsaying.innerHTML = "Good Morning";
+	break;
+	case 6:
+	getsaying.innerHTML = "Good Morning";
+	break;
+	case 7:
+	getsaying.innerHTML = "Good Morning";
+	break;
+	case 8:
+	getsaying.innerHTML = "Good Morning";
+	break;
+	case 9:
+	getsaying.innerHTML = "Good Morning";
+	break;
+	case 10:
+	getsaying.innerHTML = "Good Morning";
+	break;
+	case 11:
+	getsaying.innerHTML = "Good Morning";
+	break;
+	case 12:
+	getsaying.innerHTML = "Good Afternoon";
+	break;
+	case 13:
+	getsaying.innerHTML = "Good Afternoon";
+	break;
+	case 14:
+	getsaying.innerHTML = "Good Afternoon";
+	break;
+	case 15:
+	getsaying.innerHTML = "Good Evening";
+	break;
+	case 16:
+	getsaying.innerHTML = "Good Evening";
+	break;
+	case 17:
+	getsaying.innerHTML = "Good Evening";
+	break;
+	case 18:
+	getsaying.innerHTML = "Good Evening";
+	break;
+	case 19:
+	getsaying.innerHTML = "Good Evening";
+	break;
+	case 20:
+	getsaying.innerHTML = "Good Evening";
+	break;
+	case 21:
+	getsaying.innerHTML = "Good Evening";
+	break;
+	case 22:
+	getsaying.innerHTML = "Good Evening";
+	break;
+	case 23:
+	getsaying.innerHTML = "Good Night";
+	break;
+	default:
+	getsaying.innerHTML = "Hello";
+}
+}
+/********/
+//Function to change bg accordin to time
+var x = new Date().getHours();
+function chngBg() {
+if (x >= 0 && x <= 4) {
+image = "url('/storage/emulated/0/documents/Codes/Webs/webClock/res/lateEvening.jpg')"
+} else if (x >= 5 && x <= 9) {
+image = "url('/storage/emulated/0/documents/Codes/Webs/webClock/res/afterMorning.jpg')"
+} else if (x >= 10 && x <= 12) {
+image = "url('/storage/emulated/0/documents/Codes/Webs/webClock/res/morning.jpg')"
+} else if (x >= 13 && x <= 15) {
+image = "url('/storage/emulated/0/documents/Codes/Webs/webClock/res/afternoon.jpg')"
+} else if (x >= 16 && x <= 18) {
+image = "url('/storage/emulated/0/documents/Codes/Webs/webClock/res/earlyEvening.jpg')"
+} else if (x >= 19 && x <= 24) {
+image = "url('/storage/emulated/0/documents/Codes/Webs/webClock/res/evening.jpg')"
+} else {
+image = "url('/storage/emulated/0/documents/Codes/Webs/webClock/res/time.jpg')"
+}
+document.getElementById("body").style.backgroundImage = image;
+
+}
+
+
+
+setInterval(dispTime, 1000);
+Greet();
+chngBg();
+
+
+
+
+</script>
+<!--Script End-->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.24.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.24.0/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+
+</body>
+</html>
